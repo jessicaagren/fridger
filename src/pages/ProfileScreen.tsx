@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import AppLayout from '../layouts/AppLayout';
 import { ProductContext } from '../context/ProductContext';
 import { AuthContext } from '../context/AuthContext';
+import { colors } from '../variables/variables';
 
 const ProfileScreen = ({ navigation }: any) => {
   const { products } = useContext(ProductContext);
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   },
   infoText: {
     fontSize: 16,
-    color: '#333',
+    color: colors.black,
     marginVertical: 2,
   },
   statsContainer: {
@@ -75,14 +76,14 @@ const styles = StyleSheet.create({
     marginVertical: 2,
   },
   logoutButton: {
-    backgroundColor: '#F2A74B',
+    backgroundColor: colors.orange,
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 8,
     marginTop: 30,
   },
   logoutButtonText: {
-    color: 'white',
+    color: colors.black,
     fontWeight: '700',
     fontSize: 16,
   },

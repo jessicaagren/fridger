@@ -10,6 +10,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { colors, fonts } from '../variables/variables';
 
 type Props = {
   children: ReactNode;
@@ -30,13 +31,13 @@ const AppLayout = ({ children, title = 'FRIDGER' }: Props) => {
 
       <View style={[styles.menu, { paddingBottom: insets.bottom + 12 }]}>
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Ionicons name='home' size={32} color='#F2F2F2' />
+          <Ionicons name='home' size={32} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Ionicons name='person' size={32} color='#F2F2F2' />
+          <Ionicons name='person' size={32} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('AddProduct')}>
-          <Ionicons name='add' size={32} color='#F2F2F2' />
+          <Ionicons name='add' size={32} style={styles.icon} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -48,36 +49,38 @@ export default AppLayout;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eee',
+    backgroundColor: colors.gray,
   },
   headerWrapper: {
-    backgroundColor: '#F2F2F2',
-    paddingTop: Platform.OS === 'android' ? 40 : 20,
+    backgroundColor: colors.white,
+    paddingTop: 50,
     paddingBottom: 16,
     alignItems: 'center',
-    borderBottomColor: '#ddd',
+    borderBottomColor: colors.gray,
     borderBottomWidth: 1,
   },
   headerText: {
     fontSize: 32,
-    fontFamily: 'Fredoka_600SemiBold',
-    color: '#F20530',
-    textShadowColor: '#000',
+    fontFamily: fonts.heading,
+    color: colors.red,
+    textShadowColor: colors.black,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1,
   },
-
+  icon: {
+    color: colors.white,
+  },
   content: {
     flex: 1,
-    backgroundColor: '#D9D9D9',
+    backgroundColor: colors.gray,
     padding: 16,
   },
   menu: {
-    backgroundColor: '#63A621',
+    backgroundColor: colors.green,
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingTop: 16,
-    borderTopColor: '#ddd',
+    borderTopColor: colors.gray,
     borderTopWidth: 1,
   },
 });

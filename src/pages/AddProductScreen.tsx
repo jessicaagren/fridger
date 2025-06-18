@@ -11,6 +11,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { ProductContext } from '../context/ProductContext';
 import AppLayout from '../layouts/AppLayout';
 import { Picker } from '@react-native-picker/picker';
+import { colors } from '../variables/variables';
 
 const AddProductScreen = ({ navigation }: any) => {
   const { addProduct } = useContext(ProductContext);
@@ -150,17 +151,17 @@ export default AddProductScreen;
 const styles = StyleSheet.create({
   title: { fontSize: 20, fontWeight: 'bold', marginBottom: 20 },
   input: {
-    backgroundColor: '#F2F2F2',
+    backgroundColor: colors.white,
     height: 50,
     borderRadius: 5,
     marginVertical: 6,
     paddingHorizontal: 10,
     paddingVertical: 12,
     fontSize: 16,
-    color: '#333',
+    color: colors.black,
   },
   pickerContainer: {
-    backgroundColor: '#F2F2F2',
+    backgroundColor: colors.white,
     marginLeft: 8,
     borderRadius: 5,
     width: 130,
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
   picker: {
     height: 100,
     width: '100%',
-    color: '#000',
+    color: colors.black,
     padding: 0,
     margin: 0,
     fontSize: 16,
@@ -183,31 +184,31 @@ const styles = StyleSheet.create({
   typeButton: {
     padding: 10,
     borderRadius: 5,
-    backgroundColor: '#bbb',
+    backgroundColor: colors.darkgray,
     width: '40%',
     alignItems: 'center',
   },
   selectedType: {
-    backgroundColor: '#63A621',
+    backgroundColor: colors.green,
   },
   typeText: {
-    color: 'white',
+    color: colors.white,
     fontWeight: 'bold',
     fontSize: 16,
   },
 
   dateButton: {
-    backgroundColor: '#F2F2F2',
+    backgroundColor: colors.white,
     padding: 10,
     borderRadius: 5,
     marginVertical: 6,
   },
   dateText: {
     fontSize: 16,
-    color: '#333',
+    color: colors.black,
   },
   addButton: {
-    backgroundColor: '#F2A74B',
+    backgroundColor: colors.orange,
     padding: 10,
     borderRadius: 5,
     marginTop: 20,
@@ -215,7 +216,7 @@ const styles = StyleSheet.create({
   },
   addButtonText: { fontSize: 18, fontWeight: 'bold' },
   errorText: {
-    color: '#F20530',
+    color: colors.black,
     marginBottom: 6,
     marginLeft: 4,
   },

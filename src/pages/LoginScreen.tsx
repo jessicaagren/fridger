@@ -8,6 +8,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
+import { colors, fonts } from '../variables/variables';
 
 const backgroundImg = require('../../assets/refridgerator-background.jpg');
 
@@ -47,13 +48,13 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D9D9D9',
+    backgroundColor: colors.gray,
   },
   headerText: {
     fontSize: 32,
-    fontFamily: 'Fredoka_600SemiBold',
-    color: '#F20530',
-    textShadowColor: '#333',
+    fontFamily: fonts.heading,
+    color: colors.red,
+    textShadowColor: colors.black,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1,
   },
@@ -71,14 +72,14 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     marginBottom: 20,
-    color: '#F2F2F2',
-    textShadowColor: '#333',
+    color: colors.white,
+    textShadowColor: colors.black,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1,
   },
   description: {
     fontSize: 16,
-    color: '#333',
+    color: colors.black,
     textAlign: 'center',
     marginBottom: 10,
     paddingHorizontal: 20,
@@ -86,14 +87,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   loginButton: {
-    backgroundColor: '#F2A74B',
+    backgroundColor: colors.orange,
     padding: 10,
     borderRadius: 5,
     marginTop: 20,
     alignItems: 'center',
   },
   loginButtonText: {
-    color: '#fff',
+    color: colors.black,
     fontWeight: '600',
     fontSize: 16,
   },
