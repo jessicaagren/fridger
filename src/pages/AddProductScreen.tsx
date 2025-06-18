@@ -11,6 +11,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { ProductContext } from '../context/ProductContext';
 import AppLayout from '../layouts/AppLayout';
 import { Picker } from '@react-native-picker/picker';
+import { v4 as uuidv4 } from 'uuid';
 import { colors } from '../variables/variables';
 
 const AddProductScreen = ({ navigation }: any) => {
@@ -38,6 +39,7 @@ const AddProductScreen = ({ navigation }: any) => {
     }
 
     addProduct({
+      id: uuidv4(),
       name,
       amount: amount + ' ' + unit,
       bestBefore: bestBefore.toISOString().split('T')[0],
@@ -92,7 +94,6 @@ const AddProductScreen = ({ navigation }: any) => {
             <Picker.Item label='gram' value='g' />
             <Picker.Item label='dl' value='dl' />
             <Picker.Item label='l' value='l' />
-            <Picker.Item label='ml' value='ml' />
             <Picker.Item label='kg' value='kg' />
           </Picker>
         </View>
