@@ -5,20 +5,28 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-  Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors, fonts } from '../variables/variables';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 
 type Props = {
   children: ReactNode;
   title?: string;
 };
 
+type RootTabParamList = {
+  Home: undefined;
+  Profile: undefined;
+  AddProduct: undefined;
+};
+
+type NavigationProp = BottomTabNavigationProp<RootTabParamList>;
+
 const AppLayout = ({ children, title = 'FRIDGER' }: Props) => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProp>();
   const insets = useSafeAreaInsets();
 
   return (
