@@ -14,20 +14,13 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const AuthStack = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-      animation: 'none', // Stänger av animation i native stack
-    }}>
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
     <Stack.Screen name='Login' component={LoginScreen} />
   </Stack.Navigator>
 );
 
 const AppTabs = () => (
-  <Tab.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
+  <Tab.Navigator screenOptions={{ headerShown: false }}>
     <Tab.Screen name='Home' component={HomeScreen} />
     <Tab.Screen name='AddProduct' component={AddProductScreen} />
     <Tab.Screen name='Profile' component={ProfileScreen} />
