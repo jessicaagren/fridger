@@ -31,7 +31,7 @@ const AppLayout = ({ children, title = 'FRIDGER' }: Props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.headerWrapper}>
+      <View style={[styles.headerWrapper, { paddingTop: insets.top + 12 }]}>
         <Text style={styles.headerText}>{title}</Text>
       </View>
 
@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
   },
   headerWrapper: {
     backgroundColor: colors.white,
-    paddingTop: 50,
     paddingBottom: 16,
     alignItems: 'center',
     borderBottomColor: colors.gray,
     borderBottomWidth: 1,
   },
+
   headerText: {
     fontSize: 32,
     fontFamily: fonts.heading,
