@@ -16,6 +16,10 @@ const HomeScreen = () => {
     const isExpired = daysLeft < 0;
     const isExpiringSoon = daysLeft <= 3;
 
+    const statusText = isExpired
+      ? '(Expired)'
+      : `(${daysLeft} ${daysLeft === 1 ? 'day' : 'days'} left)`;
+
     return (
       <View style={styles.productItem}>
         <Text style={styles.productName}>{item.name}</Text>
@@ -25,12 +29,7 @@ const HomeScreen = () => {
             styles.productBestBefore,
             (isExpiringSoon || isExpired) && styles.expiringSoonText,
           ]}>
-          Best before: {item.bestBefore}{' '}
-          {isExpired
-            ? '(Expired)'
-            : isExpiringSoon
-            ? `(${daysLeft} days left)`
-            : ''}
+          Best before: {item.bestBefore} {statusText}
         </Text>
       </View>
     );
