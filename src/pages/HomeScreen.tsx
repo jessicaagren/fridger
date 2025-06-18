@@ -7,9 +7,6 @@ import { colors } from '../variables/variables';
 const HomeScreen = () => {
   const { products } = useContext(ProductContext);
 
-  const capitalize = (text: string) =>
-    text.charAt(0).toUpperCase() + text.slice(1);
-
   const renderItem = ({ item }: { item: Product }) => {
     const today = new Date();
     const bestBefore = new Date(item.bestBefore);
