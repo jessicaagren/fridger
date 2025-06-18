@@ -91,6 +91,7 @@ const AddProductScreen = ({ navigation }: any) => {
             <Picker.Item label='pcs' value='pcs' />
             <Picker.Item label='gram' value='g' />
             <Picker.Item label='dl' value='dl' />
+            <Picker.Item label='l' value='l' />
             <Picker.Item label='ml' value='ml' />
             <Picker.Item label='kg' value='kg' />
           </Picker>
