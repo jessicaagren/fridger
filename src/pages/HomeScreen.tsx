@@ -1,11 +1,19 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import AppLayout from '../layouts/AppLayout';
 import { ProductContext, Product } from '../context/ProductContext';
+import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../variables/variables';
 
 const HomeScreen = () => {
-  const { products } = useContext(ProductContext);
+  const { products, removeProduct } = useContext(ProductContext);
 
   const renderItem = ({ item }: { item: Product }) => {
     const today = new Date();
@@ -31,6 +39,12 @@ const HomeScreen = () => {
           ]}>
           Best before: {item.bestBefore} {statusText}
         </Text>
+
+        <TouchableOpacity
+          style={styles.removeButton}
+          onPress={() => removeProduct(item.id)}>
+          <Ionicons name='trash' size={24} color={colors.red} />
+        </TouchableOpacity>
       </View>
     );
   };
@@ -54,7 +68,7 @@ const HomeScreen = () => {
             ) : (
               <FlatList
                 data={fridgeProducts}
-                keyExtractor={(item, index) => `fridge-${item.name}-${index}`}
+                keyExtractor={(item) => item.id}
                 renderItem={renderItem}
                 scrollEnabled={false}
               />
@@ -66,9 +80,9 @@ const HomeScreen = () => {
                 No products in freezer
               </Text>
             ) : (
-              <FlatList<Product>
-                data={fridgeProducts}
-                keyExtractor={(item, index) => `fridge-${item.name}-${index}`}
+              <FlatList
+                data={freezerProducts}
+                keyExtractor={(item) => item.id}
                 renderItem={renderItem}
                 scrollEnabled={false}
               />
@@ -137,7 +151,12 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   expiringSoonText: {
-    color: 'red',
+    color: colors.red,
     fontWeight: 'bold',
+  },
+  removeButton: {
+    marginTop: 10,
+    padding: 6,
+    alignSelf: 'flex-end',
   },
 });
