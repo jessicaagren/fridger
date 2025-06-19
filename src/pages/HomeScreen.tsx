@@ -67,7 +67,13 @@ const HomeScreen = () => {
               <Text style={styles.emptySectionText}>No products in fridge</Text>
             ) : (
               <FlatList
-                data={fridgeProducts}
+                data={fridgeProducts
+                  .slice()
+                  .sort(
+                    (a, b) =>
+                      new Date(a.bestBefore).getTime() -
+                      new Date(b.bestBefore).getTime()
+                  )}
                 keyExtractor={(item) => item.id}
                 renderItem={renderItem}
                 scrollEnabled={false}
@@ -81,7 +87,13 @@ const HomeScreen = () => {
               </Text>
             ) : (
               <FlatList
-                data={freezerProducts}
+                data={freezerProducts
+                  .slice()
+                  .sort(
+                    (a, b) =>
+                      new Date(a.bestBefore).getTime() -
+                      new Date(b.bestBefore).getTime()
+                  )}
                 keyExtractor={(item) => item.id}
                 renderItem={renderItem}
                 scrollEnabled={false}
