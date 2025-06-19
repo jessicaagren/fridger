@@ -11,10 +11,10 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { ProductContext } from '../context/ProductContext';
 import AppLayout from '../layouts/AppLayout';
 import { Picker } from '@react-native-picker/picker';
-import { v4 as uuidv4 } from 'uuid';
+import uuid from 'react-native-uuid';
 import { colors } from '../variables/variables';
 
-const AddProductScreen = ({ navigation }: any) => {
+const AddProductScreen = () => {
   const { addProduct } = useContext(ProductContext);
 
   const [name, setName] = useState('');
@@ -39,7 +39,7 @@ const AddProductScreen = ({ navigation }: any) => {
     }
 
     addProduct({
-      id: uuidv4(),
+      id: uuid.v4().toString(),
       name,
       amount: amount + ' ' + unit,
       bestBefore: bestBefore.toISOString().split('T')[0],
@@ -52,7 +52,6 @@ const AddProductScreen = ({ navigation }: any) => {
     setType('');
     setBestBefore(new Date());
     setErrors({});
-    navigation.navigate('Home');
   };
 
   return (
