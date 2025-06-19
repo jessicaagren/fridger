@@ -1,17 +1,22 @@
 import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import { AuthProvider, AuthContext } from './src/context/AuthContext';
+import { ProductProvider } from './src/context/ProductContext';
+
 import LoginScreen from './src/pages/LoginScreen';
 import HomeScreen from './src/pages/HomeScreen';
 import AddProductScreen from './src/pages/AddProductScreen';
 import ProfileScreen from './src/pages/ProfileScreen';
-import { ProductProvider } from './src/context/ProductContext';
+
 import { useFonts, Fredoka_600SemiBold } from '@expo-google-fonts/fredoka';
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigator = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+const AppNavigator = () => {
+  const { isLoggedIn } = useContext(AuthContext);
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isLoggedIn ? (
@@ -37,18 +42,10 @@ export default function App() {
   return (
     <AuthProvider>
       <ProductProvider>
-        <AppContent />
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
       </ProductProvider>
     </AuthProvider>
   );
 }
-
-const AppContent = () => {
-  const { isLoggedIn } = useContext(AuthContext);
-
-  return (
-    <NavigationContainer>
-      <AppNavigator isLoggedIn={isLoggedIn} />
-    </NavigationContainer>
-  );
-};
