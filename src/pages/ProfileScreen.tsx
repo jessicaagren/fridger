@@ -5,7 +5,7 @@ import { ProductContext } from '../context/ProductContext';
 import { AuthContext } from '../context/AuthContext';
 import { colors } from '../variables/variables';
 
-const ProfileScreen = ({ navigation }: any) => {
+const ProfileScreen = () => {
   const { products } = useContext(ProductContext);
   const { logout } = useContext(AuthContext);
 
@@ -13,8 +13,8 @@ const ProfileScreen = ({ navigation }: any) => {
     logout();
   };
 
-  const kylCount = products.filter((p) => p.type === 'fridge').length;
-  const frysCount = products.filter((p) => p.type === 'freezer').length;
+  const fridgeCount = products.filter((p) => p.type === 'fridge').length;
+  const freezerCount = products.filter((p) => p.type === 'freezer').length;
 
   return (
     <AppLayout title='FRIDGER'>
@@ -31,8 +31,12 @@ const ProfileScreen = ({ navigation }: any) => {
           <Text style={styles.statsText}>
             Total products added: {products.length}
           </Text>
-          <Text style={styles.statsText}>Products in fridge: {kylCount}</Text>
-          <Text style={styles.statsText}>Products in freezer: {frysCount}</Text>
+          <Text style={styles.statsText}>
+            Products in fridge: {fridgeCount}
+          </Text>
+          <Text style={styles.statsText}>
+            Products in freezer: {freezerCount}
+          </Text>
         </View>
 
         <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
